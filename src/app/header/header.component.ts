@@ -5,20 +5,20 @@ import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated: boolean = false;
+
   private userSubscription: Subscription;
 
   constructor(
     private storageService: DataStorageService,
-    private authService: AuthService
-    ) { }
-
+    private authService: AuthService,
+  ) { }
 
   ngOnInit(): void {
-    this.userSubscription = this.authService.user.subscribe(user => {
+    this.userSubscription = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !!user;
     });
   }

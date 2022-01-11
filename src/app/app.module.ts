@@ -11,21 +11,21 @@ import { AuthModule } from './auth/auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    //RecipesModule, this now is Lazy loaded
-    //ShoppingListModule, this now is Lazy loaded
+    // RecipesModule, this now is Lazy loaded
+    // ShoppingListModule, this now is Lazy loaded
     SharedModule,
     CoreModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
