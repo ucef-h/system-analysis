@@ -8,7 +8,8 @@ import { RecipesResolverService } from "./recipes-resolver.service";
 import { RecipesComponent } from "./recipes.component";
 
 const routes: Routes = [
-    { path : 'recipes', component: RecipesComponent, canActivate: [AuthGuard],children: [
+    // path has been chaned to '' instead of 'recipes' in order for lazy loading to work
+    { path : '', component: RecipesComponent, canActivate: [AuthGuard],children: [ 
         { path : '', component: RecipeStartComponent},
         { path : 'new', component: RecipeEditComponent},
         { path : ':id', component: RecipeDetailComponent, resolve: [RecipesResolverService]},
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
   })
   export class RecipesRoutingModule { }

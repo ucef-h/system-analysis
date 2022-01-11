@@ -13,7 +13,8 @@ import { ShoppingListComponent } from "./shopping-list.component";
     imports: [
         FormsModule,
         RouterModule.forChild([
-            { path : 'shopping-list', component: ShoppingListComponent },
+            // path has been chaned to '' instead of 'shopping-list' in order for lazy loading to work
+            { path : '', component: ShoppingListComponent },
         ]),
         SharedModule
     ]

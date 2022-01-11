@@ -26,6 +26,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npx -p @angular/cli ng lint`
 
+## Build for peoducion 
+
+Run `npx -p @angular/cli ng build --prod`
 
 ### Documentation
 - Note that the project use Firebase as backend and the URL should be valid. 
