@@ -1,5 +1,5 @@
 export interface AuthResponceData {
-  kind: string,
+  kind: string;
   idToken: string;
   email: string;
   refreshToken: string;

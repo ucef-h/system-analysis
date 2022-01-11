@@ -15,6 +15,4 @@ import ShoppingListService from './shopping-list/shopping-list.service';
     },
   ],
 })
-export default class CoreModule {
-
-}
+export default class CoreModule {}

@@ -5,17 +5,11 @@ import SharedModule from 'src/app/shared/shared.modules';
 import AuthComponent from './auth.component';
 
 @NgModule({
-  declarations: [
-    AuthComponent,
-  ],
+  declarations: [AuthComponent],
   imports: [
     SharedModule,
     FormsModule,
-    RouterModule.forChild([
-      { path: 'auth', component: AuthComponent },
-    ]),
+    RouterModule.forChild([{ path: 'auth', component: AuthComponent }]),
   ],
 })
-export default class AuthModule {
-
-}
+export default class AuthModule {}

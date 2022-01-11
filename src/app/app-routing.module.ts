@@ -16,9 +16,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadAllModules, // prelaod lazy loading
-  })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules, // prelaod lazy loading
+    }),
+  ],
   exports: [RouterModule],
 })
-export default class AppRoutingModule { }
+export default class AppRoutingModule {}

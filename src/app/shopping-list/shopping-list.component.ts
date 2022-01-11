@@ -13,7 +13,7 @@ export default class ShoppingListComponent implements OnInit, OnDestroy {
 
   private ingredientChangedSubject: Subscription;
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService) {}
 
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.getIngredients();

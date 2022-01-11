@@ -10,7 +10,7 @@ export default class RecipeService {
 
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes:Recipe[] = [
+  private recipes: Recipe[] = [
     // new Recipe(
     //     'Carbonara',
     //     'Italian Carbonaray',
@@ -40,7 +40,7 @@ export default class RecipeService {
     // )
   ];
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService) {}
 
   getRecipes(): Recipe[] {
     return this.recipes.slice();

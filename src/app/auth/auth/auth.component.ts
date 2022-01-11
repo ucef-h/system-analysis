@@ -15,12 +15,9 @@ export default class AuthComponent {
 
   isLoading = false;
 
-  error:string | null = null;
+  error: string | null = null;
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-  ) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSwithchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -42,13 +39,16 @@ export default class AuthComponent {
       authObsarvables = this.authService.signup(email, password);
     }
 
-    authObsarvables.subscribe((resultData) => {
-      this.isLoading = false;
-      this.router.navigate(['../recipes']);
-    }, (errorMessage) => {
-      this.error = errorMessage;
-      this.isLoading = false;
-    });
+    authObsarvables.subscribe(
+      (resultData) => {
+        this.isLoading = false;
+        this.router.navigate(['../recipes']);
+      },
+      (errorMessage) => {
+        this.error = errorMessage;
+        this.isLoading = false;
+      },
+    );
 
     form.reset();
   }

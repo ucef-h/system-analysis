@@ -26,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export default class RecipesRoutingModule { }
+export default class RecipesRoutingModule {}

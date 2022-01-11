@@ -15,25 +15,27 @@ export default class DataStorageService {
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
-    this.httpclient.put(
-      'https://system-pos-2b92c-default-rtdb.firebaseio.com/recipes.json',
-      recipes,
-    ).subscribe((response) => {
-      // console.log(response);
-    });
+    this.httpclient
+      .put('https://system-pos-2b92c-default-rtdb.firebaseio.com/recipes.json', recipes)
+      .subscribe((response) => {
+        // console.log(response);
+      });
   }
 
   fetchRecipes() {
-    return this.httpclient.get<Recipe[]>(
-      'https://system-pos-2b92c-default-rtdb.firebaseio.com/recipes.json',
-    ).pipe(
-      map((recipes) => recipes.map((recipe) => (
-        { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : [] }
-      ))),
-      tap((recipes) => {
-        this.recipeService.setRecipes(recipes);
-      }),
-    );
+    return this.httpclient
+      .get<Recipe[]>('https://system-pos-2b92c-default-rtdb.firebaseio.com/recipes.json')
+      .pipe(
+        map((recipes) =>
+          recipes.map((recipe) => ({
+            ...recipe,
+            ingredients: recipe.ingredients ? recipe.ingredients : [],
+          })),
+        ),
+        tap((recipes) => {
+          this.recipeService.setRecipes(recipes);
+        }),
+      );
   }
   /*
     fetchRecipes() {

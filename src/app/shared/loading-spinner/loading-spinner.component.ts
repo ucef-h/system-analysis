@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   template: '<div class="lds-dual-ring"></div>',
   styleUrls: ['./loading-spinner.component.css'],
 })
-export default class LoadingSpinnerComponent {
-
-}
+export default class LoadingSpinnerComponent {}

@@ -9,10 +9,7 @@ import CoreModule from './core.module';
 import AuthModule from './auth/auth/auth.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,9 +20,7 @@ import AuthModule from './auth/auth/auth.module';
     CoreModule,
     AuthModule,
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
-export default class AppModule { }
+export default class AppModule {}

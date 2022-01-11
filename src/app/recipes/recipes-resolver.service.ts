@@ -7,10 +7,7 @@ import RecipeService from './recipe.service';
 
 @Injectable({ providedIn: 'root' })
 export default class RecipesResolverService implements Resolve<Recipe[]> {
-  constructor(
-    private dataStorage: DataStorageService,
-    private recipeService: RecipeService,
-  ) {}
+  constructor(private dataStorage: DataStorageService, private recipeService: RecipeService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,

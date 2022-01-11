@@ -19,16 +19,9 @@ import RecipesComponent from './recipes.component';
     RecipeStartComponent,
     RecipeEditComponent,
   ],
-  imports: [
-    RouterModule,
-    ReactiveFormsModule,
-    RecipesRoutingModule,
-    SharedModule,
-  ],
+  imports: [RouterModule, ReactiveFormsModule, RecipesRoutingModule, SharedModule],
   exports: [
     // we would add here any component or service that we might use in any other Module
   ],
 })
-export default class RecipesModule {
-
-}
+export default class RecipesModule {}
