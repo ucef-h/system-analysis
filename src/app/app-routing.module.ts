@@ -5,11 +5,13 @@ const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
     path: 'recipes',
-    loadChildren: () => import('./recipes/recipes.module').then((m) => m.RecipesModule), // Lazy loading declarations
+    // Lazy loading declaration
+    loadChildren: () => import('./recipes/recipes.module').then((m) => m.default),
   },
   {
     path: 'shopping-list',
-    loadChildren: () => import('./shopping-list/shopping-list.module').then((m) => m.ShoppingListModule), // Lazy loading declarations
+    // Lazy loading declarations
+    loadChildren: () => import('./shopping-list/shopping-list.module').then((m) => m.default),
   },
 ];
 
@@ -19,4 +21,4 @@ const routes: Routes = [
   })],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export default class AppRoutingModule { }

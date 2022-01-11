@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { DropdowDirective } from './dropdown.directive';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
-import { ShortenPipe } from './shorten.pipe';
+import DropdowDirective from './dropdown.directive';
+import LoadingSpinnerComponent from './loading-spinner/loading-spinner.component';
+import ShortenPipe from './shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,6 @@ import { ShortenPipe } from './shorten.pipe';
     CommonModule,
   ],
 })
-export class SharedModule {
+export default class SharedModule {
 
 }

@@ -26,6 +26,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npx -p @angular/cli ng lint`
 
+RUN `npx -p @angular/cli ng lint --fix` To fix some issues
 ## Build for peoducion 
 
 Run `npx -p @angular/cli ng build --prod`

@@ -1,6 +1,6 @@
-import { Ingredient } from '../shared/Ingredient.model';
+import Ingredient from '../shared/Ingredient.model';
 
-export class Recipe {
+export default class Recipe {
   public name: string;
 
   public description: string;

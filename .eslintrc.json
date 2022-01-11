@@ -21,6 +21,9 @@
         "airbnb-typescript/base"
       ],
       "rules": {
+        "max-len": [1, 120, 4],
+        "no-unused-vars":  [2, {"vars": "all", "args": "none"}],
+        "@typescript-eslint/no-unused-vars":  [2, {"vars": "all", "args": "none"}],
         "@angular-eslint/directive-selector": [
           "error",
           {

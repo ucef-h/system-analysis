@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '../auth/auth/auth.guard';
-import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
-import { RecipeStartComponent } from './recipe-start/recipe-start.component';
-import { RecipesResolverService } from './recipes-resolver.service';
-import { RecipesComponent } from './recipes.component';
+import AuthGuard from '../auth/auth/auth.guard';
+import RecipeDetailComponent from './recipe-detail/recipe-detail.component';
+import RecipeEditComponent from './recipe-edit/recipe-edit.component';
+import RecipeStartComponent from './recipe-start/recipe-start.component';
+import RecipesResolverService from './recipes-resolver.service';
+import RecipesComponent from './recipes.component';
 
 const routes: Routes = [
   // path has been chaned to '' instead of 'recipes' in order for lazy loading to work
@@ -26,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class RecipesRoutingModule { }
+export default class RecipesRoutingModule { }

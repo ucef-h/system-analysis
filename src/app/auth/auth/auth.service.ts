@@ -4,21 +4,12 @@ import { Router } from '@angular/router';
 import {
   BehaviorSubject, catchError, tap, throwError,
 } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { User } from './user.model';
-
-export interface AuthResponceData {
-  kind: string,
-  idToken: string;
-  email: string;
-  refreshToken: string;
-  expiresIn: string;
-  localId: string;
-  registered?: boolean;
-}
+import environment from 'src/environments/environment';
+import { AuthResponceData } from './auth-response-data.interface';
+import User from './user.model';
 
 @Injectable({ providedIn: 'root' })
-export class AuthService {
+export default class AuthService {
   user = new BehaviorSubject<User | null>(null);
 
   tokenExpirationTimer: any;
@@ -37,9 +28,14 @@ export class AuthService {
         returnSecureToken: true,
       },
     ).pipe(
-      catchError(this.handleError),
+      catchError(AuthService.handleError),
       tap((responseData) => {
-        this.handleAuthentication(responseData.email, responseData.localId, responseData.idToken, +responseData.expiresIn);
+        this.handleAuthentication(
+          responseData.email,
+          responseData.localId,
+          responseData.idToken,
+          +responseData.expiresIn,
+        );
       }),
     );
   }
@@ -53,9 +49,14 @@ export class AuthService {
         returnSecureToken: true,
       },
     ).pipe(
-      catchError(this.handleError),
+      catchError(AuthService.handleError),
       tap((responseData) => {
-        this.handleAuthentication(responseData.email, responseData.localId, responseData.idToken, +responseData.expiresIn);
+        this.handleAuthentication(
+          responseData.email,
+          responseData.localId,
+          responseData.idToken,
+          +responseData.expiresIn,
+        );
       }),
     );
   }
@@ -68,8 +69,8 @@ export class AuthService {
     const userData: {
       email: string,
       id: string,
-      _token: string,
-      _tokenExpirationDate: string
+      token: string,
+      tokenExpirationDate: string
     } | null = JSON.parse(data);
 
     if (!userData) {
@@ -79,13 +80,13 @@ export class AuthService {
     const loadedUser = new User(
       userData.email,
       userData.id,
-      userData._token,
-      new Date(userData._tokenExpirationDate),
+      userData.token,
+      new Date(userData.tokenExpirationDate),
     );
 
     if (loadedUser.token) {
       this.user.next(loadedUser);
-      const expirationDuraton = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
+      const expirationDuraton = new Date(userData.tokenExpirationDate).getTime() - new Date().getTime();
       this.autoLogout(expirationDuraton);
     }
   }
@@ -106,9 +107,9 @@ export class AuthService {
     }, expirationDuration);
   }
 
-  private handleError(errorResponse: HttpErrorResponse) {
+  private static handleError(errorResponse: HttpErrorResponse) {
     let errorMessage = 'An unknown message occured';
-    console.log(errorResponse.error.error);
+    // console.log(errorResponse.error.error);
     if (!errorResponse.error || !errorResponse.error.error) {
       return throwError(errorMessage);
     }
@@ -121,6 +122,9 @@ export class AuthService {
         break;
       case 'INVALID_PASSWORD':
         errorMessage = 'This passord is incorrect';
+        break;
+      default:
+        errorMessage = 'An unknown message occured';
         break;
     }
     return throwError(errorMessage);

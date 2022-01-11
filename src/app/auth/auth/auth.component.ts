@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthResponceData, AuthService } from './auth.service';
+import { AuthResponceData } from './auth-response-data.interface';
+import AuthService from './auth.service';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
 })
-export class AuthComponent implements OnInit {
+export default class AuthComponent {
   isLoginMode = true;
 
   isLoading = false;
@@ -20,10 +21,6 @@ export class AuthComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
   ) { }
-
-  ngOnInit(): void {
-
-  }
 
   onSwithchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -46,7 +43,6 @@ export class AuthComponent implements OnInit {
     }
 
     authObsarvables.subscribe((resultData) => {
-      console.log(resultData);
       this.isLoading = false;
       this.router.navigate(['../recipes']);
     }, (errorMessage) => {

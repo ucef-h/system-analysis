@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Ingredient } from '../shared/Ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
-import { Recipe } from './recipe.model';
+import Ingredient from '../shared/Ingredient.model';
+import ShoppingListService from '../shopping-list/shopping-list.service';
+import Recipe from './recipe.model';
 
 @Injectable()
-export class RecipeService {
+export default class RecipeService {
   recipeSelected = new Subject<Recipe>();
 
   recipesChanged = new Subject<Recipe[]>();
@@ -14,7 +14,7 @@ export class RecipeService {
     // new Recipe(
     //     'Carbonara',
     //     'Italian Carbonaray',
-    //     'https://static01.nyt.com/images/2021/02/14/dining/carbonara-horizontal/carbonara-horizontal-articleLarge-v2.jpg',
+    //     'https://cdn.tasteatlas.com/images/dishes/d79ca861678f44b8b8f9bbe532fda8ff.jpg',
     //     [
     //         new Ingredient('Pasta', 5),
     //         new Ingredient('cheese', 10)

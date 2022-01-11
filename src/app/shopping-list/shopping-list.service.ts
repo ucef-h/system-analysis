@@ -1,7 +1,7 @@
 import { Subject } from 'rxjs';
-import { Ingredient } from '../shared/Ingredient.model';
+import Ingredient from '../shared/Ingredient.model';
 
-export class ShoppingListService {
+export default class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>();
 
   startedEditing = new Subject<number>();

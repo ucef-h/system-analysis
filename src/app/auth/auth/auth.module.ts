@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from 'src/app/shared/shared.modules';
-import { AuthComponent } from './auth.component';
+import SharedModule from 'src/app/shared/shared.modules';
+import AuthComponent from './auth.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,6 @@ import { AuthComponent } from './auth.component';
     ]),
   ],
 })
-export class AuthModule {
+export default class AuthModule {
 
 }
