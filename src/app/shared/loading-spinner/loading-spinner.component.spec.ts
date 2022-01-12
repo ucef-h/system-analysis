@@ -15,5 +15,4 @@ describe('LoadingSpinnerComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
 });
