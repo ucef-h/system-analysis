@@ -27,9 +27,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `npx -p @angular/cli ng lint`
 
 RUN `npx -p @angular/cli ng lint --fix` To fix some issues
+
 ## Build for peoducion 
 
 Run `npx -p @angular/cli ng build --prod`
+
+## Test
+
+RUN `docker build -t app-test .`
+THEN
+RUN `docker run --rm app-test npm run test:ci`
+
+need to build when test change 
 
 ### Documentation
 - Note that the project use Firebase as backend and the URL should be valid. 
