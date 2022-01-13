@@ -31,4 +31,6 @@ jobs:
     - name: Install Angular CLI
       run: npm install -g @angular/cli > /dev/null 
     - name: Build project 
-      run: npm run build
+      run: npm run build:ci
+    - name: Validate Syntax 
+      run: npm run lint:ci
