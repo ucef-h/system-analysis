@@ -19,18 +19,31 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
+    # Checkout repository
     - name: Checkout
       uses: actions/checkout@v2
+    
+    # Install Latest Node Version
     - name: Install Node
       uses: actions/setup-node@v2
       with:
         check-latest: true
+    
+    # Download Packages
     - name: Install dependencies
       run: npm install
     - name: Install Angular CLI
       run: npm install -g @angular/cli > /dev/null 
+
+    # Validate Project Build for prod
     - name: Build project 
       run: npm run build:ci
+    
+    # Validate Syntax
     - name: Validate Syntax 
       run: npm run lint:ci
+
+    # Run Test 
+    - name: Run Test
+      run: name: Run Test
+      run: npm run test:ci
