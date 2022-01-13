@@ -5,10 +5,12 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --poll 500",
     "build": "ng build",
+    "build:ci": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --browsers=Headless --no-watch",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:ci": "ng lint --quiet"
   },
   "private": true,
   "dependencies": {

@@ -12,7 +12,14 @@ describe('HeaderComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [HeaderComponent],
-      providers: [HttpHandler, HttpClient, AuthService, DataStorageService, RecipeService, ShoppingListService]
+      providers: [
+        HttpHandler,
+        HttpClient,
+        AuthService,
+        DataStorageService,
+        RecipeService,
+        ShoppingListService,
+      ],
     }).compileComponents();
   });
 

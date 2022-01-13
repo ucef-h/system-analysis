@@ -9,7 +9,7 @@ describe('RecipeDetailComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [RecipeDetailComponent],
-      providers: [ShoppingListService, RecipeService]
+      providers: [ShoppingListService, RecipeService],
     }).compileComponents();
   });
 
