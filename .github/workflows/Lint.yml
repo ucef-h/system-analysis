@@ -45,5 +45,4 @@ jobs:
 
     # Run Test 
     - name: Run Test
-      run: name: Run Test
       run: npm run test:ci
